@@ -88,6 +88,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             damageable.TakeDamage(1);
         }
+
+        TakeDamage(1);
     }
 
     public void TakeDamage(int amount)
