@@ -4,13 +4,16 @@ public class Asteroid : MonoBehaviour, IDamageable
 {
     [SerializeField] private int health;
     [SerializeField] private GameObject[] asteroids;
+    [SerializeField] private int points;
     private Rigidbody2D _rigidbody2D;
     private Vector2 _direction;
     private float _speed;
+    private ScoreHandler _scoreHandler;
 
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _scoreHandler = FindObjectOfType<ScoreHandler>();
     }
 
     private void Start()
@@ -36,6 +39,7 @@ public class Asteroid : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             DestroyObject();
+            _scoreHandler.AddScore(points);
         }
     }
 }

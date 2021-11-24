@@ -101,6 +101,7 @@ MonoBehaviour:
   health: 1
   asteroids:
   - {fileID: 6062158362989198390, guid: 5ab498c77a2f77642bb09e5e740c7ce5, type: 3}
+  points: 50
 --- !u!50 &6062158362989198386
 Rigidbody2D:
   serializedVersion: 4
