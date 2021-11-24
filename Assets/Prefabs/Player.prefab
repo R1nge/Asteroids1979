@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1673027502247079509}
   - component: {fileID: 1673027502247079508}
-  - component: {fileID: 3360449341284475611}
   - component: {fileID: 1673027502247079511}
   - component: {fileID: 4060303218408194919}
   m_Layer: 0
@@ -51,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0686d106a689efe4394ef7ef02967b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1
   speed: 1
   rotationSpeed: 1
   shootPoint: {fileID: 4158638312906959893}
@@ -59,19 +59,6 @@ MonoBehaviour:
   reloadTime: 0.5
   thrustSound: {fileID: 7065559984668926989}
   shootSound: {fileID: 4618534504176175767}
---- !u!114 &3360449341284475611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673027502247079512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a51d6308cc35f0141a6cd90014bfb387, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
 --- !u!50 &1673027502247079511
 Rigidbody2D:
   serializedVersion: 4

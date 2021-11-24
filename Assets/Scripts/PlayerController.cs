@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
+    [SerializeField] private int health;
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private Transform shootPoint;
@@ -10,13 +11,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float reloadTime;
     [SerializeField] private AudioSource thrustSound, shootSound;
     private float _reloadTime;
-    private Health _health;
     private Rigidbody2D _rigidbody2D;
 
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _health = GetComponent<Health>();
     }
 
     private void Start()
@@ -85,11 +84,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.transform.TryGetComponent(out Health health))
+        if (other.transform.TryGetComponent(out IDamageable damageable))
         {
-            health.TakeDamage(1);
+            damageable.TakeDamage(1);
         }
+    }
 
-        _health.TakeDamage(1);
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

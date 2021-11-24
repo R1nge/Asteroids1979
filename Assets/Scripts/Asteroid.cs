@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class Asteroid : MonoBehaviour
+public class Asteroid : MonoBehaviour, IDamageable
 {
+    [SerializeField] private int health;
     [SerializeField] private GameObject[] asteroids;
     private Rigidbody2D _rigidbody2D;
     private Vector2 _direction;
@@ -19,11 +20,21 @@ public class Asteroid : MonoBehaviour
         _rigidbody2D.velocity = (_direction * _speed);
     }
 
-    private void OnDestroy()
+    private void DestroyObject()
     {
         foreach (var asteroid in asteroids)
         {
             Instantiate(asteroid, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            DestroyObject();
         }
     }
 }

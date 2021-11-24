@@ -13,9 +13,9 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.transform.TryGetComponent(out Health health))
+        if (other.transform.TryGetComponent(out IDamageable damageable))
         {
-            health.TakeDamage(damageAmount);
+            damageable.TakeDamage(damageAmount);
         }
 
         Destroy(gameObject);

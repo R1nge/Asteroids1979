@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6062158362989198388}
   - component: {fileID: 6062158362989198391}
   - component: {fileID: 6062158362989198389}
-  - component: {fileID: 7188134902006651608}
   - component: {fileID: 6062158362989198386}
   - component: {fileID: 2150513095423631138}
   m_Layer: 0
@@ -98,21 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2a3e437417fd54b85e7b6c4b23bd62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1
   asteroids:
   - {fileID: 6062158362989198390, guid: 5ab498c77a2f77642bb09e5e740c7ce5, type: 3}
---- !u!114 &7188134902006651608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6062158362989198390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a51d6308cc35f0141a6cd90014bfb387, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
 --- !u!50 &6062158362989198386
 Rigidbody2D:
   serializedVersion: 4
