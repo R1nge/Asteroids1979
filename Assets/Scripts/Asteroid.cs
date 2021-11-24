@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
+    [SerializeField] private GameObject[] asteroids;
     private Rigidbody2D _rigidbody2D;
     private Vector2 _direction;
     private float _speed;
@@ -16,5 +17,13 @@ public class Asteroid : MonoBehaviour
         _direction = new Vector2(Random.Range(-5, 5), Random.Range(-6, 6));
         _speed = Random.Range(.5f, 1f);
         _rigidbody2D.velocity = (_direction * _speed);
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var asteroid in asteroids)
+        {
+            Instantiate(asteroid, transform.position, transform.rotation);
+        }
     }
 }

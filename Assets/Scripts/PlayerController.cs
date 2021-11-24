@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D bulletPrefab;
     [SerializeField] private int ammoAmount;
     [SerializeField] private float reloadTime;
+    [SerializeField] private AudioSource thrustSound, shootSound;
     private float _reloadTime;
     private Health _health;
     private Rigidbody2D _rigidbody2D;
@@ -30,13 +31,14 @@ public class PlayerController : MonoBehaviour
         Shoot();
         Reload();
     }
-    
+
 
     private void Move()
     {
         if (Input.GetKey(KeyCode.W))
         {
             _rigidbody2D.AddForce(transform.right * speed);
+            thrustSound.Play();
         }
     }
 
@@ -62,6 +64,7 @@ public class PlayerController : MonoBehaviour
                 var bullet = Instantiate(bulletPrefab, shootPoint.position, transform.rotation);
                 bullet.velocity = (transform.right * speed * 10);
                 ammoAmount -= 1;
+                shootSound.Play();
             }
         }
     }
@@ -88,7 +91,5 @@ public class PlayerController : MonoBehaviour
         }
 
         _health.TakeDamage(1);
-
-        Destroy(gameObject);
     }
 }
