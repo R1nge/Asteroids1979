@@ -25,8 +25,9 @@ public class Asteroid : MonoBehaviour, IDamageable
         foreach (var asteroid in asteroids)
         {
             Instantiate(asteroid, transform.position, transform.rotation);
-            Destroy(gameObject);
         }
+
+        Destroy(gameObject);
     }
 
     public void TakeDamage(int amount)
