@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1673027502247079509}
-  - component: {fileID: 1673027502247079508}
   - component: {fileID: 1673027502247079511}
   - component: {fileID: 4060303218408194919}
+  - component: {fileID: 1673027502247079508}
   - component: {fileID: 7396624179376116056}
   m_Layer: 0
   m_Name: Player
@@ -39,27 +39,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &1673027502247079508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673027502247079512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0686d106a689efe4394ef7ef02967b40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  speed: 1
-  rotationSpeed: 1
-  shootPoint: {fileID: 4158638312906959893}
-  bulletPrefab: {fileID: 3197464597908238381, guid: 73d204f7418225b479eb49bbabe563ea, type: 3}
-  ammoAmount: 5
-  reloadTime: 0.5
-  thrustSound: {fileID: 7065559984668926989}
-  shootSound: {fileID: 4618534504176175767}
 --- !u!50 &1673027502247079511
 Rigidbody2D:
   serializedVersion: 4
@@ -109,6 +88,28 @@ PolygonCollider2D:
     - - {x: -0.012681052, y: 0.28352076}
       - {x: -0.2345773, y: -0.2077358}
       - {x: 0.20795068, y: -0.20983753}
+--- !u!114 &1673027502247079508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673027502247079512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0686d106a689efe4394ef7ef02967b40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 3
+  speed: 2
+  rotationSpeed: 2
+  shootPoint: {fileID: 4158638312906959893}
+  bulletPrefab: {fileID: 3197464597908238381, guid: 73d204f7418225b479eb49bbabe563ea, type: 3}
+  ammoAmount: 5
+  bulletSpeed: 10
+  reloadTime: 0.5
+  thrustSound: {fileID: 7065559984668926989}
+  shootSound: {fileID: 4618534504176175767}
 --- !u!114 &7396624179376116056
 MonoBehaviour:
   m_ObjectHideFlags: 0

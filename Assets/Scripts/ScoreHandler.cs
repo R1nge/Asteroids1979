@@ -14,13 +14,13 @@ public class ScoreHandler : MonoBehaviour
 
     private void Start()
     {
-        _uiHandler.UpdateUI(_score, _highScore);
+        _uiHandler.UpdateScoreUI(_score, _highScore);
     }
 
     public void AddScore(int amount)
     {
         _score += amount;
-        _uiHandler.UpdateUI(_score, _highScore);
+        _uiHandler.UpdateScoreUI(_score, _highScore);
         if (_score > _highScore)
         {
             _highScore = _score;

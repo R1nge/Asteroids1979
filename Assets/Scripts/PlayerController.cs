@@ -1,14 +1,14 @@
-using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamageable
 {
-    [SerializeField] private int health;
+    public int lives;
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private Transform shootPoint;
     [SerializeField] private Rigidbody2D bulletPrefab;
     [SerializeField] private int ammoAmount;
+    [SerializeField] private float bulletSpeed;
     [SerializeField] private float reloadTime;
     [SerializeField] private AudioSource thrustSound, shootSound;
     private float _reloadTime;
@@ -24,16 +24,20 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void Start()
     {
         _reloadTime = reloadTime;
+        _uiHandler.UpdateLivesUI(lives);
     }
 
     private void Update()
     {
-        Move();
         Rotate();
         Shoot();
         Reload();
     }
 
+    private void FixedUpdate()
+    {
+        Move();
+    }
 
     private void Move()
     {
@@ -64,7 +68,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             if (ammoAmount > 0)
             {
                 var bullet = Instantiate(bulletPrefab, shootPoint.position, transform.rotation);
-                bullet.velocity = (transform.right * speed * 10);
+                bullet.velocity = (transform.right * bulletSpeed);
                 ammoAmount -= 1;
                 shootSound.Play();
             }
@@ -87,28 +91,26 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Respawn()
     {
-        Instantiate(gameObject, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 90));
+        var go = Instantiate(gameObject, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 90));
+        _uiHandler.UpdateLivesUI(lives);
         Destroy(gameObject);
+        print("Respawn");
     }
-
+    
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (!other.gameObject.CompareTag("Player"))
+        if (other.transform.TryGetComponent(out IDamageable damageable))
         {
-            if (other.transform.TryGetComponent(out IDamageable damageable))
-            {
-                damageable.TakeDamage(1);
-            }
-
-            TakeDamage(1);
+            damageable.TakeDamage(1);
         }
+
+        TakeDamage(1);
     }
-
-
+                                                                                                                                                                                                                                                                                        
     public void TakeDamage(int amount)
     {
-        health -= amount;
-        if (health <= 0)
+        lives -= amount;
+        if (lives <= 0)
         {
             Destroy(gameObject);
             _uiHandler.GameOver();

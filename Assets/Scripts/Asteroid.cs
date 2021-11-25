@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour, IDamageable
 {
-    [SerializeField] private int health;
+    [SerializeField] private int lives;
     [SerializeField] private GameObject[] asteroids;
     [SerializeField] private int points;
     private Vector2 _direction;
@@ -32,11 +32,12 @@ public class Asteroid : MonoBehaviour, IDamageable
 
         Destroy(gameObject);
     }
+    
 
     public void TakeDamage(int amount)
     {
-        health -= amount;
-        if (health <= 0)
+        lives -= amount;
+        if (lives <= 0)
         {
             DestroyObject();
             _scoreHandler.AddScore(points);

@@ -12,10 +12,6 @@ public class Boundaries : MonoBehaviour
     {
         _camera = FindObjectOfType<Camera>();
         _collider2D = GetComponent<PolygonCollider2D>();
-    }
-
-    private void Start()
-    {
         SetupValues();
     }
 
@@ -28,27 +24,31 @@ public class Boundaries : MonoBehaviour
     {
         _objectWidth = _collider2D.bounds.extents.x;
         _objectHeight = _collider2D.bounds.extents.y;
-
-        float camDistance = Vector3.Distance(transform.position, _camera.transform.position);
-
-        Vector2 bottomCorner = _camera.ViewportToWorldPoint(new Vector3(0, 0, camDistance));
-        Vector2 topCorner = _camera.ViewportToWorldPoint(new Vector3(1, 1, camDistance));
-
-        _minX = bottomCorner.x + _objectWidth;
-        _maxX = topCorner.x - _objectWidth;
-        _minY = bottomCorner.y + _objectHeight;
-        _maxY = topCorner.y - _objectHeight;
     }
 
     private void CheckBorders()
     {
         Vector3 pos = transform.position;
 
-        if (pos.x < _minX) pos.x = _maxX;
-        if (pos.x > _maxX) pos.x = _minX;
+        if (pos.x < -10.5f - _objectWidth)
+        {
+            pos.x = 10.5f;
+        }
 
-        if (pos.y < _minY) pos.y = _maxY;
-        if (pos.y > _maxY) pos.y = _minY;
+        if (pos.x > 10.5f + _objectWidth)
+        {
+            pos.x = -10.5f;
+        }
+
+        if (pos.y < -5.8f - _objectHeight)
+        {
+            pos.y = 5.8f;
+        }
+
+        if (pos.y > 5.8f + _objectHeight)
+        {
+            pos.y = -5.8f;
+        }
 
         transform.position = pos;
     }

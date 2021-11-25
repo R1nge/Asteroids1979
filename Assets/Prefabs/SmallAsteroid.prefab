@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6062158362989198388}
   - component: {fileID: 6062158362989198391}
-  - component: {fileID: 6062158362989198389}
   - component: {fileID: 6062158362989198386}
   - component: {fileID: -4288108306894014453}
+  - component: {fileID: 6062158362989198389}
   - component: {fileID: 4015083638555307411}
   m_Layer: 0
   m_Name: SmallAsteroid
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6062158362989198390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.89, y: 0.35, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -86,21 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6062158362989198389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6062158362989198390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc2a3e437417fd54b85e7b6c4b23bd62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  asteroids: []
-  points: 25
 --- !u!50 &6062158362989198386
 Rigidbody2D:
   serializedVersion: 4
@@ -160,6 +145,21 @@ PolygonCollider2D:
       - {x: 0.074999996, y: -0.065}
       - {x: 0.044999998, y: -0.055}
       - {x: 0.095, y: -0.074999996}
+--- !u!114 &6062158362989198389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062158362989198390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2a3e437417fd54b85e7b6c4b23bd62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 1
+  asteroids: []
+  points: 25
 --- !u!114 &4015083638555307411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,4 +172,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38a6c949a59ac141bf661fe805fbac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 6062158362989198391}
