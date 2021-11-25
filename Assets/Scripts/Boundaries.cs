@@ -1,51 +1,55 @@
-using System;
 using UnityEngine;
 
 public class Boundaries : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    private PolygonCollider2D _collider2D;
     private Camera _camera;
-    private Vector2 _screenBounds;
     private float _objectWidth;
     private float _objectHeight;
+    private float _minX, _maxX, _minY, _maxY;
 
     private void Awake()
     {
         _camera = FindObjectOfType<Camera>();
+        _collider2D = GetComponent<PolygonCollider2D>();
     }
 
     private void Start()
     {
-        _screenBounds =
-            _camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, _camera.transform.position.z));
-        _objectWidth = spriteRenderer.bounds.extents.x * 2;
-        _objectHeight = spriteRenderer.bounds.extents.y * 2;
+        SetupValues();
     }
 
     private void LateUpdate()
     {
-        var viewPos = transform.position;
-        
-        if (viewPos.x < _screenBounds.x + _objectWidth)
-        {
-            viewPos.x = -_screenBounds.x - _objectWidth;
-        }
+        CheckBorders();
+    }
 
-        if (viewPos.x > -_screenBounds.x - _objectWidth)
-        {
-            viewPos.x = _screenBounds.x + _objectWidth;
-        }
+    private void SetupValues()
+    {
+        _objectWidth = _collider2D.bounds.extents.x;
+        _objectHeight = _collider2D.bounds.extents.y;
 
-        if (viewPos.y < _screenBounds.y + _objectHeight)
-        {
-            viewPos.y = -_screenBounds.y - _objectHeight;
-        }
+        float camDistance = Vector3.Distance(transform.position, _camera.transform.position);
 
-        if (viewPos.y > -_screenBounds.y - _objectHeight)
-        {
-            viewPos.y = _screenBounds.y + _objectHeight;
-        }
+        Vector2 bottomCorner = _camera.ViewportToWorldPoint(new Vector3(0, 0, camDistance));
+        Vector2 topCorner = _camera.ViewportToWorldPoint(new Vector3(1, 1, camDistance));
 
-        transform.position = viewPos;
+        _minX = bottomCorner.x + _objectWidth;
+        _maxX = topCorner.x - _objectWidth;
+        _minY = bottomCorner.y + _objectHeight;
+        _maxY = topCorner.y - _objectHeight;
+    }
+
+    private void CheckBorders()
+    {
+        Vector3 pos = transform.position;
+
+        if (pos.x < _minX) pos.x = _maxX;
+        if (pos.x > _maxX) pos.x = _minX;
+
+        if (pos.y < _minY) pos.y = _maxY;
+        if (pos.y > _maxY) pos.y = _minY;
+
+        transform.position = pos;
     }
 }

@@ -6,23 +6,26 @@ public class ScoreHandler : MonoBehaviour
     private int _highScore;
     private UIHandler _uiHandler;
 
-    private void Start()
+    private void Awake()
     {
         _highScore = PlayerPrefs.GetInt("HighScore");
         _uiHandler = FindObjectOfType<UIHandler>();
-        print(_highScore);
+    }
+
+    private void Start()
+    {
+        _uiHandler.UpdateUI(score, _highScore);
     }
 
     public void AddScore(int amount)
     {
         score += amount;
-        _uiHandler.UpdateUI(score);
+        _uiHandler.UpdateUI(score, _highScore);
         if (score > _highScore)
         {
             _highScore = score;
             PlayerPrefs.SetInt("HighScore", _highScore);
             PlayerPrefs.Save();
-            print(_highScore);
         }
     }
 }

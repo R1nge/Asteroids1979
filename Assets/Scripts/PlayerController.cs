@@ -12,15 +12,18 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private AudioSource thrustSound, shootSound;
     private float _reloadTime;
     private Rigidbody2D _rigidbody2D;
+    private UIHandler _uiHandler;
 
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _uiHandler = FindObjectOfType<UIHandler>();
     }
 
     private void Start()
     {
         _reloadTime = reloadTime;
+        Time.timeScale = 1;
     }
 
     private void Update()
@@ -82,6 +85,12 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
     }
 
+    private void Respawn()
+    {
+        Instantiate(gameObject, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 90));
+        Destroy(gameObject);
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.transform.TryGetComponent(out IDamageable damageable))
@@ -92,12 +101,19 @@ public class PlayerController : MonoBehaviour, IDamageable
         TakeDamage(1);
     }
 
+
     public void TakeDamage(int amount)
     {
         health -= amount;
         if (health <= 0)
         {
             Destroy(gameObject);
+            _uiHandler.GameOver();
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Respawn();
         }
     }
 }

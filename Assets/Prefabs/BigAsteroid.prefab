@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6062158362989198391}
   - component: {fileID: 6062158362989198389}
   - component: {fileID: 6062158362989198386}
-  - component: {fileID: 1855523533470925073}
   - component: {fileID: 66197483185030882}
+  - component: {fileID: 5987614670923890061}
   m_Layer: 0
   m_Name: BigAsteroid
   m_TagString: Untagged
@@ -123,7 +123,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &1855523533470925073
+--- !u!114 &66197483185030882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062158362989198390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b38a6c949a59ac141bf661fe805fbac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider2D: {fileID: 0}
+--- !u!60 &5987614670923890061
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,16 +204,3 @@ PolygonCollider2D:
       - {x: 0.06, y: -0.13}
       - {x: 0.04, y: -0.14}
       - {x: 0.049999997, y: -0.14}
---- !u!114 &66197483185030882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6062158362989198390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b38a6c949a59ac141bf661fe805fbac8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 6062158362989198391}
