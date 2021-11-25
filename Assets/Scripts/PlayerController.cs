@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamageable
@@ -23,7 +24,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void Start()
     {
         _reloadTime = reloadTime;
-        Time.timeScale = 1;
     }
 
     private void Update()
@@ -93,12 +93,15 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.transform.TryGetComponent(out IDamageable damageable))
+        if (!other.gameObject.CompareTag("Player"))
         {
-            damageable.TakeDamage(1);
-        }
+            if (other.transform.TryGetComponent(out IDamageable damageable))
+            {
+                damageable.TakeDamage(1);
+            }
 
-        TakeDamage(1);
+            TakeDamage(1);
+        }
     }
 
 
@@ -109,7 +112,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             Destroy(gameObject);
             _uiHandler.GameOver();
-            Time.timeScale = 0;
         }
         else
         {

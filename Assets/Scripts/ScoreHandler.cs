@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ScoreHandler : MonoBehaviour
 {
-    public int score;
+    private int _score;
     private int _highScore;
     private UIHandler _uiHandler;
 
@@ -14,16 +14,16 @@ public class ScoreHandler : MonoBehaviour
 
     private void Start()
     {
-        _uiHandler.UpdateUI(score, _highScore);
+        _uiHandler.UpdateUI(_score, _highScore);
     }
 
     public void AddScore(int amount)
     {
-        score += amount;
-        _uiHandler.UpdateUI(score, _highScore);
-        if (score > _highScore)
+        _score += amount;
+        _uiHandler.UpdateUI(_score, _highScore);
+        if (_score > _highScore)
         {
-            _highScore = score;
+            _highScore = _score;
             PlayerPrefs.SetInt("HighScore", _highScore);
             PlayerPrefs.Save();
         }
