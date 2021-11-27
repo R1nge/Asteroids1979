@@ -6,32 +6,18 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject[] objectsToSpawn;
     [SerializeField] private float spawnInterval;
     [SerializeField] private int targetSpawnAmount;
+    [SerializeField] private float minX, maxX, minY, maxY;
     private Camera _camera;
-    private float _minX, _maxX, _minY, _maxY;
     private GameObject[] _spawnedAmount;
 
     private void Awake()
     {
         _camera = FindObjectOfType<Camera>();
-        SetupValues();
     }
 
     private void Start()
     {
         StartCoroutine(Spawn_c());
-    }
-
-    private void SetupValues()
-    {
-        float camDistance = Vector3.Distance(transform.position, _camera.transform.position);
-
-        Vector2 bottomCorner = _camera.ViewportToWorldPoint(new Vector3(0, 0, camDistance));
-        Vector2 topCorner = _camera.ViewportToWorldPoint(new Vector3(1, 1, camDistance));
-
-        _minX = bottomCorner.x;
-        _maxX = topCorner.x;
-        _minY = bottomCorner.y;
-        _maxY = topCorner.y;
     }
 
     private IEnumerator Spawn_c()
@@ -42,11 +28,9 @@ public class Spawner : MonoBehaviour
             if (_spawnedAmount.Length < targetSpawnAmount)
             {
                 Instantiate(objectsToSpawn[Random.Range(0, objectsToSpawn.Length)],
-                    new Vector3(
-                        Random.Range(_minX / 2, _maxX * 2),
-                        Random.Range(_minY / 2, _maxY * 2)),
+                    _camera.ViewportToWorldPoint(new Vector3(Random.Range(0, 1), Random.Range(0, 1)) +
+                                                 new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 10)),
                     Quaternion.identity);
-            }
 
             yield return new WaitForSeconds(spawnInterval);
         }
