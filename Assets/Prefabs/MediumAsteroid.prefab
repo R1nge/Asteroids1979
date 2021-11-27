@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 6022428510566221702}
   - component: {fileID: 6062158362989198389}
   - component: {fileID: 2949577972367047050}
+  - component: {fileID: 6699842193794775152}
+  - component: {fileID: 5620156389290132079}
   m_Layer: 0
   m_Name: MediumAsteroid
   m_TagString: Enemy
@@ -163,7 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2a3e437417fd54b85e7b6c4b23bd62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 1
   asteroids:
   - {fileID: 6062158362989198390, guid: 5ab498c77a2f77642bb09e5e740c7ce5, type: 3}
   points: 50
@@ -179,3 +180,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38a6c949a59ac141bf661fe805fbac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6699842193794775152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062158362989198390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3d59dd8ebef8b4488a857447239805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5620156389290132079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062158362989198390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de6a1988d0c1fb8428c63161f3e80536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  maxHealth: 1

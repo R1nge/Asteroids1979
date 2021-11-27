@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: -4288108306894014453}
   - component: {fileID: 6062158362989198389}
   - component: {fileID: 4015083638555307411}
+  - component: {fileID: 1350101788261572525}
+  - component: {fileID: 8567038993692559689}
   m_Layer: 0
   m_Name: SmallAsteroid
   m_TagString: Enemy
@@ -157,7 +159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2a3e437417fd54b85e7b6c4b23bd62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 1
   asteroids: []
   points: 25
 --- !u!114 &4015083638555307411
@@ -172,3 +173,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38a6c949a59ac141bf661fe805fbac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1350101788261572525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062158362989198390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3d59dd8ebef8b4488a857447239805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8567038993692559689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062158362989198390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de6a1988d0c1fb8428c63161f3e80536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  maxHealth: 1

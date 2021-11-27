@@ -43,8 +43,11 @@ GameObject:
   - component: {fileID: 7859772104538628898}
   - component: {fileID: 7859772104538628896}
   - component: {fileID: 7859772104538628899}
+  - component: {fileID: 5642852495354316641}
   - component: {fileID: 7859772104538628897}
   - component: {fileID: -1457516571172724838}
+  - component: {fileID: 6898588027707481394}
+  - component: {fileID: 7053028329947188904}
   m_Layer: 0
   m_Name: Ufo
   m_TagString: Enemy
@@ -268,10 +271,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 200
   lives: 1
-  reloadTime: 3
-  bulletSpeed: 1
+  weapon: {fileID: 5642852495354316641}
+--- !u!114 &5642852495354316641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859772104538628959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c46521a3c5afc4daa055718f4b9e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 20
+  reloadTime: 0
   shootPoint: {fileID: 155212010232837714}
   bulletPrefab: {fileID: 3197464597908238381, guid: 73d204f7418225b479eb49bbabe563ea, type: 3}
+  ammoAmount: 4
+  shootSound: {fileID: 7859772104538628898}
 --- !u!114 &7859772104538628897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,3 +323,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6898588027707481394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859772104538628959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3d59dd8ebef8b4488a857447239805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7053028329947188904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859772104538628959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de6a1988d0c1fb8428c63161f3e80536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  maxHealth: 1
