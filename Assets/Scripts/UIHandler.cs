@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class UIHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI score, highScore, lives;
-    [SerializeField] private GameObject startScreen;
-    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private Canvas mainMenu, inGame, gameOver;
     private Spawner _spawner;
 
     private void Awake()
@@ -19,7 +18,9 @@ public class UIHandler : MonoBehaviour
     {
         Time.timeScale = 0;
         _spawner.enabled = false;
-        gameOverScreen.SetActive(false);
+        mainMenu.gameObject.SetActive(true);
+        inGame.gameObject.SetActive(false);
+        gameOver.gameObject.SetActive(false);
     }
 
     public void UpdateScoreUI(int scorePoints, int highScorePoints)
@@ -35,15 +36,18 @@ public class UIHandler : MonoBehaviour
 
     public void Play()
     {
-        startScreen.SetActive(false);
+        mainMenu.gameObject.SetActive(false);
+        inGame.gameObject.SetActive(true);
+        gameOver.gameObject.SetActive(false);
         _spawner.enabled = true;
         Time.timeScale = 1;
     }
 
     public void GameOver()
     {
-        score.gameObject.SetActive(false);
-        gameOverScreen.SetActive(true);
+        mainMenu.gameObject.SetActive(false);
+        inGame.gameObject.SetActive(false);
+        gameOver.gameObject.SetActive(true);
         _spawner.enabled = false;
         Time.timeScale = 0;
     }
