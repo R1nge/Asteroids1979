@@ -9,31 +9,26 @@ public class Weapon : MonoBehaviour
     [SerializeField] private int ammoAmount;
     [SerializeField] private AudioSource shootSound;
     private float _reloadTime;
-
-    private void Awake()
-    {
-        FindObjectOfType<PlayerInput>().OnFife += HandleFire;
-    }
-
-    private void Start()
-    {
-        _reloadTime = reloadTime;
-    }
+    
+    private void Start() => _reloadTime = reloadTime;
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            HandleFire();
+        }
+
         Reload();
     }
 
     private void HandleFire()
     {
-        if (ammoAmount > 0)
-        {
-            var bullet = Instantiate(bulletPrefab, shootPoint.position, transform.rotation);
-            bullet.velocity = (transform.right * bulletSpeed);
-            ammoAmount -= 1;
-            shootSound.Play();
-        }
+        if (ammoAmount <= 0) return;
+        var bullet = Instantiate(bulletPrefab, shootPoint.position, transform.rotation);
+        bullet.velocity = transform.right * bulletSpeed;
+        ammoAmount -= 1;
+        shootSound.Play();
     }
 
     private void Reload()
@@ -43,10 +38,8 @@ public class Weapon : MonoBehaviour
             _reloadTime -= Time.deltaTime;
         }
 
-        if (_reloadTime <= 0)
-        {
-            ammoAmount = 5;
-            _reloadTime = reloadTime;
-        }
+        if (!(_reloadTime <= 0)) return;
+        ammoAmount = 5;
+        _reloadTime = reloadTime;
     }
 }

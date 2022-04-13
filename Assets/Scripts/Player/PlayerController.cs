@@ -1,41 +1,44 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private int lives;
-    private UIHandler _uiHandler;
     private Health _health;
+    private Rigidbody2D _rigidbody2D;
+
+    public event Action<int> OnTakenDamageEvent;
 
     private void Awake()
     {
-        _uiHandler = FindObjectOfType<UIHandler>();
         _health = GetComponent<Health>();
         _health.OnDieEvent += Die;
+        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
-
-    private void Start()
-    {
-        _uiHandler.UpdateLivesUI(lives);
-    }
-
+    
     private void Die()
     {
         if (lives <= 1)
         {
-            Destroy(gameObject);
-            _uiHandler.GameOver();
+            gameObject.SetActive(false);
+            GameManager.GameOver();
         }
         else
         {
             Respawn();
         }
+        
+        OnTakenDamageEvent?.Invoke(lives);
     }
 
     private void Respawn()
     {
-        var go = Instantiate(gameObject, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 90));
-        go.GetComponent<PlayerController>().lives -= 1;
-        _uiHandler.UpdateLivesUI(lives);
-        Destroy(gameObject);
+        _rigidbody2D.velocity = Vector2.zero;
+        _rigidbody2D.angularVelocity = 0f;
+        gameObject.transform.position = new Vector3(0, 0, 0);
+        gameObject.transform.rotation = Quaternion.Euler(0,0,90);
+        lives -= 1;
     }
+
+    private void OnDestroy() => _health.OnDieEvent -= Die;
 }

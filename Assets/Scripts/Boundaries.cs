@@ -3,14 +3,11 @@ using UnityEngine;
 public class Boundaries : MonoBehaviour
 {
     private PolygonCollider2D _collider2D;
-    private Camera _camera;
     private float _objectWidth;
     private float _objectHeight;
-    private float _minX, _maxX, _minY, _maxY;
 
     private void Awake()
     {
-        _camera = FindObjectOfType<Camera>();
         _collider2D = GetComponent<PolygonCollider2D>();
         SetupValues();
     }
@@ -22,13 +19,14 @@ public class Boundaries : MonoBehaviour
 
     private void SetupValues()
     {
-        _objectWidth = _collider2D.bounds.extents.x;
-        _objectHeight = _collider2D.bounds.extents.y;
+        var bounds = _collider2D.bounds;
+        _objectWidth = bounds.extents.x;
+        _objectHeight = bounds.extents.y;
     }
 
     private void CheckBorders()
     {
-        Vector3 pos = transform.position;
+        var pos = transform.position;
 
         if (pos.x < -10.5f - _objectWidth)
         {

@@ -1,59 +1,60 @@
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UIHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI score, highScore, lives;
     [SerializeField] private Canvas mainMenu, inGame, gameOver;
-    private Spawner _spawner;
-
+    private ScoreHandler _scoreHandler;
+    private PlayerController _player;
+    
     private void Awake()
     {
-        _spawner = GetComponent<Spawner>();
+        GameManager.OnGameStartedEvent += Play;
+        GameManager.OnGameOverEvent += GameOver;
+        _scoreHandler = FindObjectOfType<ScoreHandler>();
+        _scoreHandler.OnScoreUpdated += UpdateScore;
+        _scoreHandler.OnHighScoreUpdated += UpdateHighScore;
+        _player = FindObjectOfType<PlayerController>();
+        _player.OnTakenDamageEvent += UpdateLives;
     }
 
     private void Start()
     {
-        Time.timeScale = 0;
-        _spawner.enabled = false;
         mainMenu.gameObject.SetActive(true);
         inGame.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
+        GameManager.SetTimeScale(0);
     }
 
-    public void UpdateScoreUI(int scorePoints, int highScorePoints)
-    {
-        score.text = "Score: " + scorePoints;
-        highScore.text = "HighScore: " + highScorePoints;
-    }
+    private void UpdateScore(int scorePoints) => score.text = "Score: " + scorePoints;
 
-    public void UpdateLivesUI(int amount)
-    {
-        lives.text = amount.ToString();
-    }
+    private void UpdateHighScore(int points) => highScore.text = "HighScore " + points;
 
-    public void Play()
+    private void UpdateLives(int amount) => lives.text = amount.ToString();
+
+    private void Play()
     {
         mainMenu.gameObject.SetActive(false);
         inGame.gameObject.SetActive(true);
         gameOver.gameObject.SetActive(false);
-        _spawner.enabled = true;
-        Time.timeScale = 1;
+        GameManager.SetTimeScale(1);
     }
 
-    public void GameOver()
+    private void GameOver()
     {
         mainMenu.gameObject.SetActive(false);
         inGame.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(true);
-        _spawner.enabled = false;
-        Time.timeScale = 0;
+        GameManager.SetTimeScale(0);
     }
 
-    public void Restart()
+    private void OnDestroy()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        _scoreHandler.OnScoreUpdated -= UpdateScore;
+        _scoreHandler.OnHighScoreUpdated -= UpdateScore;
+        GameManager.OnGameStartedEvent -= Play;
+        GameManager.OnGameOverEvent -= GameOver;
+        _player.OnTakenDamageEvent -= UpdateLives;
     }
 }

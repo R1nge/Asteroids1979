@@ -24,4 +24,6 @@ public class Asteroid : MonoBehaviour
         _scoreHandler.AddScore(points);
         Destroy(gameObject);
     }
+
+    private void OnDestroy() => _health.OnDieEvent -= DestroyObject;
 }

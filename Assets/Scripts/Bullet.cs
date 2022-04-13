@@ -1,23 +1,18 @@
 using System.Collections;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public abstract class Bullet : MonoBehaviour
 {
-    [SerializeField] private int damageAmount;
-    [SerializeField] private float lifeTime;
+    [SerializeField] protected int damageAmount;
+    [SerializeField] protected float lifeTime;
 
-    private void Start()
+    private void Start() => StartCoroutine(destroy_c());
+
+    protected abstract void OnCollision(GameObject go);
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        StartCoroutine(destroy_c());
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.transform.TryGetComponent(out Health health))
-        {
-            health.TakeDamage(damageAmount);
-        }
-
+        OnCollision(other.gameObject);
         Destroy(gameObject);
     }
 

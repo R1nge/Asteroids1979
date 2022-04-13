@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\Home\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Home\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Asteroids1979.1691659260.00" t="ExcludeRecursive" />
-    <e p="D:\Asteroids1979" t="IncludeRecursive">
+    <e p="C:\Users\Home\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Asteroids1979.2035010477.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Home\Documents\MyProjects\Unity\Asteroids1979" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
@@ -14,15 +14,17 @@
             <e p="EnemyMovement.cs" t="Include" />
             <e p="Ufo.cs" t="Include" />
           </e>
+          <e p="EnemyBullet.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
           <e p="Health.cs" t="Include" />
           <e p="Interfaces" t="Include">
             <e p="IDamageable.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
             <e p="PlayerController.cs" t="Include" />
-            <e p="PlayerInput.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
           </e>
+          <e p="PlayerBullet.cs" t="Include" />
           <e p="ScoreHandler.cs" t="Include" />
           <e p="Spawner.cs" t="Include" />
           <e p="UIHandler.cs" t="Include" />

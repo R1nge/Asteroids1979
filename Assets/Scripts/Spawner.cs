@@ -13,12 +13,12 @@ public class Spawner : MonoBehaviour
     private void Awake()
     {
         _camera = FindObjectOfType<Camera>();
+        GameManager.OnGameStartedEvent += OnGameStart;
     }
 
-    private void Start()
-    {
-        StartCoroutine(Spawn_c());
-    }
+    private void Start() => StartCoroutine(Spawn_c());
+
+    private void OnGameStart() => enabled = true;
 
     private IEnumerator Spawn_c()
     {
@@ -36,4 +36,6 @@ public class Spawner : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
         }
     }
+
+    private void OnDestroy() => GameManager.OnGameStartedEvent -= OnGameStart;
 }
