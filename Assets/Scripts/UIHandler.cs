@@ -21,40 +21,40 @@ public class UIHandler : MonoBehaviour
 
     private void Start()
     {
+        GameManager.SetTimeScale(0);
         mainMenu.gameObject.SetActive(true);
         inGame.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
-        GameManager.SetTimeScale(0);
     }
 
     private void UpdateScore(int scorePoints) => score.text = "Score: " + scorePoints;
 
-    private void UpdateHighScore(int points) => highScore.text = "HighScore " + points;
+    private void UpdateHighScore(int points) => highScore.text = "HighScore: " + points;
 
-    private void UpdateLives(int amount) => lives.text = amount.ToString();
+    private void UpdateLives(int amount) => lives.text = "Lives: " + amount;
 
     private void Play()
     {
+        GameManager.SetTimeScale(1);
         mainMenu.gameObject.SetActive(false);
         inGame.gameObject.SetActive(true);
         gameOver.gameObject.SetActive(false);
-        GameManager.SetTimeScale(1);
     }
 
     private void GameOver()
     {
+        GameManager.SetTimeScale(0);
         mainMenu.gameObject.SetActive(false);
         inGame.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(true);
-        GameManager.SetTimeScale(0);
     }
 
     private void OnDestroy()
     {
-        _scoreHandler.OnScoreUpdated -= UpdateScore;
-        _scoreHandler.OnHighScoreUpdated -= UpdateScore;
         GameManager.OnGameStartedEvent -= Play;
         GameManager.OnGameOverEvent -= GameOver;
+        _scoreHandler.OnScoreUpdated -= UpdateScore;
+        _scoreHandler.OnHighScoreUpdated -= UpdateScore;
         _player.OnTakenDamageEvent -= UpdateLives;
     }
 }

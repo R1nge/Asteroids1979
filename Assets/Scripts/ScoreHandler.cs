@@ -10,15 +10,14 @@ public class ScoreHandler : MonoBehaviour
     public event Action<int> OnHighScoreUpdated;
 
     private void Awake() => _highScore = PlayerPrefs.GetInt("HighScore");
-
-
+    
     public void AddScore(int amount)
     {
         _score += amount;
         OnScoreUpdated?.Invoke(_score);
+        OnHighScoreUpdated?.Invoke(_highScore);
         if (_score <= _highScore) return;
         _highScore = _score;
-        OnHighScoreUpdated?.Invoke(_highScore);
         PlayerPrefs.SetInt("HighScore", _highScore);
         PlayerPrefs.Save();
     }
