@@ -2,11 +2,12 @@
 
 Made from scratch using this video as reference https://youtu.be/cZfsnA7dAHI
 
-Used Original Sounds and Sprites 
+Used Original Sounds
 
-![image](https://user-images.githubusercontent.com/59400159/154790180-3d72b547-f9d2-419f-a425-99d8805740d4.png)
+https://youtu.be/FcXhNI5E-Is
 
-![image](https://user-images.githubusercontent.com/59400159/154790281-1a80c9e8-feba-4721-b76c-5d60d28bb4f0.png)
+![mainscreen](https://user-images.githubusercontent.com/59400159/163112906-938ba78c-6d88-4824-90f5-1ce336b9ad8d.PNG)
 
-![image](https://user-images.githubusercontent.com/59400159/154790225-ad80b2be-cb4b-45fc-80b3-b32b762c4fc2.png)
+![ingamescreen](https://user-images.githubusercontent.com/59400159/163112911-25b88792-6b3a-4475-8717-91d295c5bccf.PNG)
 
+![gameoverscreen](https://user-images.githubusercontent.com/59400159/163112915-23893096-f19f-4371-86dd-2ba0a623b8af.PNG)
