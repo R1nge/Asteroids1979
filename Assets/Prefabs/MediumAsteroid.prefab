@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6062158362989198389}
   - component: {fileID: 2949577972367047050}
   - component: {fileID: 6699842193794775152}
-  - component: {fileID: 5620156389290132079}
+  - component: {fileID: 8832493265650885079}
   m_Layer: 0
   m_Name: MediumAsteroid
   m_TagString: Enemy
@@ -33,6 +33,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.89, y: 0.35, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -48,6 +49,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -217,9 +219,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2a3e437417fd54b85e7b6c4b23bd62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  points: 50
+  amountOfChildren: 1
   asteroids:
   - {fileID: 6062158362989198390, guid: 5ab498c77a2f77642bb09e5e740c7ce5, type: 3}
-  points: 50
 --- !u!114 &2949577972367047050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3d59dd8ebef8b4488a857447239805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5620156389290132079
+--- !u!114 &8832493265650885079
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -253,7 +256,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6062158362989198390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de6a1988d0c1fb8428c63161f3e80536, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d58336058316f742ad6ba34640d8100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1

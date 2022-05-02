@@ -2,33 +2,44 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\Home\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Home\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Asteroids1979.2035010477.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Home\Documents\MyProjects\Unity\Asteroids1979" t="IncludeRecursive">
+    <e p="C:\Users\Home\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Asteroids1979.283533940.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Home\Documents\Code\Unity\Asteroids1979" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
-          <e p="Boundaries.cs" t="Include" />
-          <e p="Bullet.cs" t="Include" />
+          <e p="Core" t="Include">
+            <e p="Boundaries.cs" t="Include" />
+            <e p="Core.asmdef" t="Include" />
+            <e p="GameManager.cs" t="Include" />
+            <e p="Health.cs" t="Include" />
+            <e p="IDamageable.cs" t="Include" />
+            <e p="ScoreHandler.cs" t="Include" />
+            <e p="UIHandler.cs" t="Include" />
+          </e>
           <e p="Enemy" t="Include">
             <e p="Asteroid.cs" t="Include" />
+            <e p="Enemy.asmdef" t="Include" />
+            <e p="EnemyBase.cs" t="Include" />
+            <e p="EnemyHealth.cs" t="Include" />
             <e p="EnemyMovement.cs" t="Include" />
+            <e p="EnemySpawner.cs" t="Include" />
             <e p="Ufo.cs" t="Include" />
           </e>
-          <e p="EnemyBullet.cs" t="Include" />
-          <e p="GameManager.cs" t="Include" />
-          <e p="Health.cs" t="Include" />
-          <e p="Interfaces" t="Include">
-            <e p="IDamageable.cs" t="Include" />
-          </e>
           <e p="Player" t="Include">
+            <e p="Player.asmdef" t="Include" />
             <e p="PlayerController.cs" t="Include" />
+            <e p="PlayerHealth.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
           </e>
-          <e p="PlayerBullet.cs" t="Include" />
-          <e p="ScoreHandler.cs" t="Include" />
-          <e p="Spawner.cs" t="Include" />
-          <e p="UIHandler.cs" t="Include" />
-          <e p="Weapon.cs" t="Include" />
+          <e p="Weapons" t="Include">
+            <e p="Bullet.cs" t="Include" />
+            <e p="EnemyBullet.cs" t="Include" />
+            <e p="EnemyWeapon.cs" t="Include" />
+            <e p="PlayerBullet.cs" t="Include" />
+            <e p="PlayerWeapon.cs" t="Include" />
+            <e p="WeaponBase.cs" t="Include" />
+            <e p="Weapons.asmdef" t="Include" />
+          </e>
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
@@ -59,13 +70,18 @@
           </e>
           <e p="Sprites" t="Include">
             <e p="EmojiOne Attribution.txt" t="Include" />
+            <e p="EmojiOne.json" t="Include" />
           </e>
         </e>
       </e>
       <e p="Asteroids1979.sln" t="IncludeFlat" />
+      <e p="Core.csproj" t="IncludeRecursive" />
+      <e p="Enemy.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
+      <e p="Player.csproj" t="IncludeRecursive" />
       <e p="Temp\Bin" t="ExcludeRecursive" />
+      <e p="Weapons.csproj" t="IncludeRecursive" />
     </e>
   </component>
 </project>

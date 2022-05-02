@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public abstract class WeaponBase : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed;
     [SerializeField] private float reloadTime;
@@ -9,10 +9,10 @@ public class Weapon : MonoBehaviour
     [SerializeField] private int ammoAmount;
     [SerializeField] private AudioSource shootSound;
     private float _reloadTime;
-    
-    private void Start() => _reloadTime = reloadTime;
 
-    private void Update()
+    protected virtual void Start() => _reloadTime = reloadTime;
+
+    protected virtual void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -22,7 +22,7 @@ public class Weapon : MonoBehaviour
         Reload();
     }
 
-    private void HandleFire()
+    protected virtual void HandleFire()
     {
         if (ammoAmount <= 0) return;
         var bullet = Instantiate(bulletPrefab, shootPoint.position, transform.rotation);
@@ -31,7 +31,7 @@ public class Weapon : MonoBehaviour
         shootSound.Play();
     }
 
-    private void Reload()
+    protected void Reload()
     {
         if (ammoAmount <= 0)
         {

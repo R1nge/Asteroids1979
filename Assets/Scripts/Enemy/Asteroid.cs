@@ -1,29 +1,21 @@
 using UnityEngine;
 
-public class Asteroid : MonoBehaviour
+namespace Enemy
 {
-    [SerializeField] private GameObject[] asteroids;
-    [SerializeField] private int points;
-    private ScoreHandler _scoreHandler;
-    private Health _health;
-
-    private void Awake()
+    public class Asteroid : EnemyBase
     {
-        _scoreHandler = FindObjectOfType<ScoreHandler>();
-        _health = GetComponent<Health>();
-        _health.OnDieEvent += DestroyObject;
-    }
+        [SerializeField] private GameObject[] asteroids;
 
-    private void DestroyObject()
-    {
-        foreach (var asteroid in asteroids)
+        protected override void Die()
         {
-            Instantiate(asteroid, transform.position, transform.rotation);
+            base.Die();
+            foreach (var asteroid in asteroids)
+            {
+                Instantiate(asteroid, transform.position, transform.rotation);
+            }
+
+            AddPoints();
+            Destroy(gameObject);
         }
-
-        _scoreHandler.AddScore(points);
-        Destroy(gameObject);
     }
-
-    private void OnDestroy() => _health.OnDieEvent -= DestroyObject;
 }
