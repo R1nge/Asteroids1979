@@ -13,19 +13,11 @@ namespace Weapons
         private float _reloadTime;
         private BulletSpawner _bulletSpawner;
 
-        private void Awake() => _bulletSpawner = FindObjectOfType<BulletSpawner>();
+        protected virtual void Awake() => _bulletSpawner = FindObjectOfType<BulletSpawner>();
 
         protected virtual void Start() => _reloadTime = reloadTime;
 
-        protected virtual void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                HandleFire();
-            }
-
-            Reload();
-        }
+        protected virtual void Update() => Reload();
 
         protected void HandleFire()
         {
@@ -36,7 +28,7 @@ namespace Weapons
             shootSound.Play();
         }
 
-        protected void Reload()
+        private void Reload()
         {
             if (ammoAmount <= 0)
             {

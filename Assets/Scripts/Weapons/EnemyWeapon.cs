@@ -7,7 +7,5 @@ namespace Weapons
             base.Start();
             InvokeRepeating(nameof(HandleFire), 0, 2f);
         }
-
-        protected override void Update() => Reload();
     }
 }
