@@ -10,9 +10,7 @@ namespace Core
 
         private void Start() => health = maxHealth;
 
-        private void OnCollisionEnter2D(Collision2D other) => OnCollision(other);
-
-        protected virtual void OnCollision(Collision2D other){}
+        protected abstract void OnCollisionEnter2D(Collision2D other);
 
         public void TakeDamage(int amount)
         {
