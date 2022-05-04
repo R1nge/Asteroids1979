@@ -7,8 +7,8 @@ namespace Weapons
     {
         protected override void OnCollision(GameObject go)
         {
-            if (!go.TryGetComponent(out Health health)) return;
-            health.TakeDamage(damageAmount);
+            if (!go.TryGetComponent(out IDamageable damageable)) return;
+            damageable.TakeDamage(damageAmount);
         }
     }
 }
