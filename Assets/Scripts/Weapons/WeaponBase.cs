@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Weapons;
 
 public abstract class WeaponBase : MonoBehaviour
 {
@@ -9,6 +11,9 @@ public abstract class WeaponBase : MonoBehaviour
     [SerializeField] private int ammoAmount;
     [SerializeField] private AudioSource shootSound;
     private float _reloadTime;
+    private BulletSpawner _bulletSpawner;
+
+    private void Awake() => _bulletSpawner = FindObjectOfType<BulletSpawner>();
 
     protected virtual void Start() => _reloadTime = reloadTime;
 
@@ -22,10 +27,10 @@ public abstract class WeaponBase : MonoBehaviour
         Reload();
     }
 
-    protected virtual void HandleFire()
+    protected void HandleFire()
     {
         if (ammoAmount <= 0) return;
-        var bullet = Instantiate(bulletPrefab, shootPoint.position, transform.rotation);
+        var bullet = _bulletSpawner.Spawn(bulletPrefab, shootPoint.position, transform.rotation);
         bullet.velocity = transform.right * bulletSpeed;
         ammoAmount -= 1;
         shootSound.Play();

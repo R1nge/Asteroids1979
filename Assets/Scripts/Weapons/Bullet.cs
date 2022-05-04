@@ -10,11 +10,8 @@ namespace Weapons
 
         private void Start() => StartCoroutine(destroy_c());
 
-        protected abstract void OnCollision(GameObject go);
-
-        private void OnTriggerEnter2D(Collider2D other)
+        public virtual void OnTriggerEnter2D(Collider2D other)
         {
-            OnCollision(other.gameObject);
             Destroy(gameObject);
         }
 

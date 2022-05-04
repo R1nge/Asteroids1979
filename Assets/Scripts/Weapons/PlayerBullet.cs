@@ -5,9 +5,10 @@ namespace Weapons
 {
     public class PlayerBullet : Bullet
     {
-        protected override void OnCollision(GameObject go)
+        public override void OnTriggerEnter2D(Collider2D other)
         {
-            if (!go.TryGetComponent(out IDamageable damageable)) return;
+            base.OnTriggerEnter2D(other);
+            if (!other.TryGetComponent(out IDamageable damageable)) return;
             damageable.TakeDamage(damageAmount);
         }
     }

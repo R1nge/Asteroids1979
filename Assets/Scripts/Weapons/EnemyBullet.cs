@@ -5,11 +5,12 @@ namespace Weapons
 {
     public class EnemyBullet : Bullet
     {
-        protected override void OnCollision(GameObject go)
+        public override void OnTriggerEnter2D(Collider2D other)
         {
-            if (!go.CompareTag("Player")) return;
-            if (!go.TryGetComponent(out Health health)) return;
-            health.TakeDamage(damageAmount);
+            base.OnTriggerEnter2D(other);
+            if (!other.CompareTag("Player")) return;
+            if (!other.TryGetComponent(out IDamageable damageable)) return;
+            damageable.TakeDamage(damageAmount);
         }
     }
 }
