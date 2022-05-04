@@ -20,13 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34aef73f-b9d7-46f2-abc5-0c96169ece4a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Asteroids1979/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Asteroids1979/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Asteroids1979/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Asteroids1979/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/EnemyBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/EnemyBullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/PlayerBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/PlayerBullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/BulletSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/BulletSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/EnemyWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/EnemyWeapon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +35,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/UIHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Home/Documents/Code/Unity/ASD/Asteroids1979/Assets/Scripts/Weapons/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Home/Documents/Code/Unity/ASD/Asteroids1979/Assets/Scripts/Weapons/PlayerBullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Home/Documents/Code/Unity/ASD/Asteroids1979/Assets/Scripts/Weapons/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Home/Documents/Code/Unity/ASD/Asteroids1979/Assets/Scripts/Weapons/PlayerBullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Home/Documents/Code/Unity/ASD/Asteroids1979/Assets/Scripts/Weapons/EnemyBullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Home/Documents/Code/Unity/ASD/Asteroids1979/Assets/Scripts/Weapons/Bullet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/DE80AED0-BD36-4640-9E8B-FB15C101F005/2e/439a8be7/Range.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Home/Documents/Code/Unity/ASD/Asteroids1979/Assets/Scripts/Weapons/WeaponBase.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -77,11 +81,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/PlayerWeapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Ufo.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/EnemyWeapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Bullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/EnemyBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/PlayerBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/EnemyWeapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/BulletSpawner.cs" />
       </list>
     </option>
   </component>
@@ -141,16 +146,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactored Code" />
     <MESSAGE value="UI HotFix" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI HotFix" />
+    <MESSAGE value="Minor Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor Refactoring" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="0" y="116" key="DiffContextDialog" timestamp="1651635660729">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="0" y="116" key="DiffContextDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1651635660729" />
     <state x="1053" y="421" key="RiderGenerateDialog" timestamp="1651471380174">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="1053" y="421" key="RiderGenerateDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1651471380174" />
-    <state x="417" y="431" key="Vcs.Push.Dialog.v2" timestamp="1649829550847">
+    <state x="417" y="431" key="Vcs.Push.Dialog.v2" timestamp="1651635695440">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="417" y="431" key="Vcs.Push.Dialog.v2/0.0.2560.1410@0.0.2560.1410" timestamp="1649829550847" />
+    <state x="417" y="431" key="Vcs.Push.Dialog.v2/0.0.2560.1410@0.0.2560.1410" timestamp="1651635695440" />
   </component>
 </project>

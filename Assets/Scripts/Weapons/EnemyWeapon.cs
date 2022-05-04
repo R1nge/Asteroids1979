@@ -1,10 +1,13 @@
-public class EnemyWeapon : WeaponBase
+namespace Weapons
 {
-    protected override void Start()
+    public class EnemyWeapon : WeaponBase
     {
-        base.Start();
-        InvokeRepeating(nameof(HandleFire), 0, 2f);
-    }
+        protected override void Start()
+        {
+            base.Start();
+            InvokeRepeating(nameof(HandleFire), 0, 2f);
+        }
 
-    protected override void Update() => Reload();
+        protected override void Update() => Reload();
+    }
 }
