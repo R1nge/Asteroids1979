@@ -11,7 +11,7 @@ namespace Player
 
         private void Awake() => _rigidbody2D = GetComponent<Rigidbody2D>();
 
-        private void Update() => GetInput();
+        private void FixedUpdate() => GetInput();
 
         private void GetInput()
         {
@@ -29,12 +29,12 @@ namespace Player
 
         private void MoveForward()
         {
-            _rigidbody2D.AddForce(transform.right * (speed * Time.deltaTime));
+            _rigidbody2D.AddForce(transform.right * speed);
             thrustSound.Play();
         }
 
-        private void RotateLeft() => transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
+        private void RotateLeft() => _rigidbody2D.MoveRotation(_rigidbody2D.rotation + rotationSpeed * Time.fixedDeltaTime);
 
-        private void RotateRight() => transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime);
+        private void RotateRight() => _rigidbody2D.MoveRotation(_rigidbody2D.rotation - rotationSpeed * Time.fixedDeltaTime);
     }
 }

@@ -10,6 +10,20 @@ namespace Core
         public event Action<int> OnScoreUpdated;
         public event Action<int> OnHighScoreUpdated;
 
+        public static ScoreHandler Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = FindObjectOfType(typeof(ScoreHandler)) as ScoreHandler;
+
+                return _instance;
+            }
+            private set => _instance = value;
+        }
+
+        private static ScoreHandler _instance;
+
         private void Awake() => Load();
 
         private void Load()

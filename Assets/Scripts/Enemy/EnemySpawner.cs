@@ -15,9 +15,9 @@ namespace Enemy
         {
             GameManager.Instance.OnGameStartedEvent += OnGameStart;
             EnemyBase.OnEnemyDied += OnEnemyDied;
-            _camera = FindObjectOfType<Camera>();
+            _camera = Camera.main;
             _height = _camera.orthographicSize + 1;
-            _width = _camera.orthographicSize * Camera.main.aspect + 1;
+            _width = _camera.orthographicSize * _camera.aspect + 1;
         }
 
         private void OnEnemyDied(int amount)
@@ -48,6 +48,7 @@ namespace Enemy
         private void OnDestroy()
         {
             GameManager.Instance.OnGameStartedEvent -= OnGameStart;
+            EnemyBase.OnEnemyDied -= OnEnemyDied;
         }
     }
 }

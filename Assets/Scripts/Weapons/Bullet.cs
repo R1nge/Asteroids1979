@@ -10,15 +10,12 @@ namespace Weapons
 
         private void Start() => StartCoroutine(destroy_c());
 
-        public virtual void OnTriggerEnter2D(Collider2D other)
-        {
-            Destroy(gameObject);
-        }
+        public virtual void OnTriggerEnter2D(Collider2D other) => gameObject.SetActive(false);
 
         private IEnumerator destroy_c()
         {
             yield return new WaitForSeconds(lifeTime);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

@@ -60,7 +60,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   bulletSpeed: 10
   reloadTime: 3
   shootPoint: {fileID: 4580586026503068299}
-  bulletPrefab: {fileID: 3197464597908238381, guid: 73d204f7418225b479eb49bbabe563ea, type: 3}
+  bulletPrefab: {fileID: 3871974687900499927, guid: 73d204f7418225b479eb49bbabe563ea, type: 3}
   ammoAmount: 5
   shootSound: {fileID: 5061946555267628041}
 --- !u!114 &6954094091293697990

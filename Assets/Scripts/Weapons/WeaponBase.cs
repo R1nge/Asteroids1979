@@ -4,16 +4,12 @@ namespace Weapons
 {
     public abstract class WeaponBase : MonoBehaviour
     {
-        [SerializeField] private float bulletSpeed;
+        [SerializeField] protected float bulletSpeed;
         [SerializeField] private float reloadTime;
-        [SerializeField] private Transform shootPoint;
-        [SerializeField] private Rigidbody2D bulletPrefab;
+        [SerializeField] protected Transform shootPoint;
         [SerializeField] private int ammoAmount;
         [SerializeField] private AudioSource shootSound;
         private float _reloadTime;
-        private BulletSpawner _bulletSpawner;
-
-        protected virtual void Awake() => _bulletSpawner = FindObjectOfType<BulletSpawner>();
 
         protected virtual void Start() => _reloadTime = reloadTime;
 
@@ -22,10 +18,19 @@ namespace Weapons
         protected void HandleFire()
         {
             if (ammoAmount <= 0) return;
-            var bullet = _bulletSpawner.Spawn(bulletPrefab, shootPoint.position, transform.rotation);
-            bullet.velocity = transform.right * bulletSpeed;
+            SpawnBullet();
             ammoAmount -= 1;
             shootSound.Play();
+        }
+
+        protected virtual void SpawnBullet()
+        {
+            var bullet = BulletSpawner.Instance.GetPlayerBullet();
+            bullet.transform.position = shootPoint.position;
+            if (bullet.TryGetComponent(out Rigidbody2D rb))
+            {
+                rb.velocity = transform.right * bulletSpeed;
+            }
         }
 
         private void Reload()

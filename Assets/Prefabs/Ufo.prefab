@@ -350,7 +350,7 @@ MonoBehaviour:
   bulletSpeed: 10
   reloadTime: 0
   shootPoint: {fileID: 155212010232837714}
-  bulletPrefab: {fileID: 3197464597908238381, guid: bca85d8426c868246b9d78028fe3430f, type: 3}
+  bulletPrefab: {fileID: 3871974687900499927, guid: bca85d8426c868246b9d78028fe3430f, type: 3}
   ammoAmount: 1
   shootSound: {fileID: 302256437367684576}
 --- !u!114 &7859772104538628897

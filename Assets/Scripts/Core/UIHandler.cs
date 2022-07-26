@@ -7,15 +7,13 @@ namespace Core
     {
         [SerializeField] private TextMeshProUGUI score, highScore, lives;
         [SerializeField] private Canvas mainMenu, inGame, gameOver;
-        private ScoreHandler _scoreHandler;
 
         private void Awake()
         {
             GameManager.Instance.OnGameStartedEvent += Play;
             GameManager.Instance.OnGameOverEvent += GameOver;
-            _scoreHandler = FindObjectOfType<ScoreHandler>();
-            _scoreHandler.OnScoreUpdated += UpdateScore;
-            _scoreHandler.OnHighScoreUpdated += UpdateHighScore;
+            ScoreHandler.Instance.OnScoreUpdated += UpdateScore;
+            ScoreHandler.Instance.OnHighScoreUpdated += UpdateHighScore;
         }
 
         private void Start()
@@ -47,8 +45,10 @@ namespace Core
 
         private void OnDestroy()
         {
-            _scoreHandler.OnScoreUpdated -= UpdateScore;
-            _scoreHandler.OnHighScoreUpdated -= UpdateScore;
+            GameManager.Instance.OnGameStartedEvent -= Play;
+            GameManager.Instance.OnGameOverEvent -= GameOver;
+            ScoreHandler.Instance.OnScoreUpdated -= UpdateScore;
+            ScoreHandler.Instance.OnHighScoreUpdated -= UpdateScore;
         }
     }
 }
