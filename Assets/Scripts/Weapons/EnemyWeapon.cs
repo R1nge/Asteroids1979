@@ -16,7 +16,7 @@ namespace Weapons
             bullet.transform.position = shootPoint.position;
             if (bullet.TryGetComponent(out Rigidbody2D rb))
             {
-                rb.velocity = transform.right * bulletSpeed;
+                rb.velocity = -transform.up * bulletSpeed;
             }
         }
     }

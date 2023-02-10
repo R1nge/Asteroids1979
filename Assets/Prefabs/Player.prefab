@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31fce752b3908a7428ae4a8d78b4fa25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 150
+  speed: 1.5
   rotationSpeed: 150
   thrustSound: {fileID: 7217608173871731347}
 --- !u!114 &1229544949261146312
@@ -166,7 +166,6 @@ MonoBehaviour:
   bulletSpeed: 10
   reloadTime: 3
   shootPoint: {fileID: 4580586026503068299}
-  bulletPrefab: {fileID: 3871974687900499927, guid: 73d204f7418225b479eb49bbabe563ea, type: 3}
   ammoAmount: 5
   shootSound: {fileID: 5061946555267628041}
 --- !u!114 &6954094091293697990
