@@ -1,30 +1,17 @@
 using System;
 using UnityEngine;
+using VContainer.Unity;
 
 namespace Core
 {
-    public class ScoreHandler : MonoBehaviour
+    public class ScoreHandler : IInitializable
     {
         private int _score, _highScore;
 
         public event Action<int> OnScoreUpdated;
         public event Action<int> OnHighScoreUpdated;
 
-        public static ScoreHandler Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = FindObjectOfType(typeof(ScoreHandler)) as ScoreHandler;
-
-                return _instance;
-            }
-            private set => _instance = value;
-        }
-
-        private static ScoreHandler _instance;
-
-        private void Awake() => Load();
+        public void Initialize() => Load();
 
         private void Load()
         {

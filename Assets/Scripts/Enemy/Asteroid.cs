@@ -1,4 +1,5 @@
 using UnityEngine;
+using VContainer.Unity;
 
 namespace Enemy
 {
@@ -11,7 +12,7 @@ namespace Enemy
             base.Die();
             foreach (var asteroid in asteroids)
             {
-                Instantiate(asteroid, transform.position, transform.rotation);
+                ObjectResolver.Instantiate(asteroid, transform.position, transform.rotation);
             }
 
             AddPoints();

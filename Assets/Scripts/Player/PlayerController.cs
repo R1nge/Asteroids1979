@@ -1,5 +1,6 @@
 using Core;
 using UnityEngine;
+using VContainer;
 
 namespace Player
 {
@@ -8,14 +9,21 @@ namespace Player
         [SerializeField] private int lives;
         private Health _health;
         private Rigidbody2D _rigidbody2D;
+        private GameManager _gameManager;
         private UIHandler _uiHandler;
+
+        [Inject]
+        private void Construct(GameManager gameManager, UIHandler uiHandler)
+        {
+            _gameManager = gameManager;
+            _uiHandler = uiHandler;
+        }
 
         private void Awake()
         {
             _health = GetComponent<Health>();
             _health.OnDieEvent += Die;
             _rigidbody2D = GetComponent<Rigidbody2D>();
-            _uiHandler = FindObjectOfType<UIHandler>();
         }
 
         private void Die()
@@ -23,7 +31,7 @@ namespace Player
             if (lives <= 1)
             {
                 gameObject.SetActive(false);
-                GameManager.Instance.GameOver();
+                _gameManager.GameOver();
             }
             else
             {
@@ -37,8 +45,8 @@ namespace Player
         {
             _rigidbody2D.velocity = Vector2.zero;
             _rigidbody2D.angularVelocity = 0f;
-            gameObject.transform.position = new Vector3(0, 0, 0);
-            gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+            transform.position = Vector3.zero;
+            transform.rotation = Quaternion.Euler(0, 0, 90f);
             lives -= 1;
         }
 

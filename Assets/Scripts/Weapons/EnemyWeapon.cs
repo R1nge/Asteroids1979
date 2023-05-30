@@ -12,7 +12,7 @@ namespace Weapons
 
         protected override void SpawnBullet()
         {
-            var bullet = BulletSpawner.Instance.GetEnemyBullet();
+            var bullet = BulletFactory.GetEnemyBullet();
             bullet.transform.position = shootPoint.position;
             if (bullet.TryGetComponent(out Rigidbody2D rb))
             {

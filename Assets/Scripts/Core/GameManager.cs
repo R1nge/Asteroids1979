@@ -4,20 +4,8 @@ using UnityEngine.SceneManagement;
 
 namespace Core
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager
     {
-        public static GameManager Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = FindObjectOfType(typeof(GameManager)) as GameManager;
- 
-                return _instance;
-            }
-            private set => _instance = value;
-        }
-        private static GameManager _instance;
         public event Action OnGameStartedEvent;
         public event Action OnGameOverEvent;
 

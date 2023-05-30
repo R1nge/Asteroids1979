@@ -1,6 +1,7 @@
 using System;
 using Core;
 using UnityEngine;
+using VContainer;
 
 namespace Enemy
 {
@@ -9,8 +10,17 @@ namespace Enemy
         [SerializeField] private int points;
         [SerializeField] private int amountOfChildren;
         private Health _health;
+        private ScoreHandler _scoreHandler;
+        protected IObjectResolver ObjectResolver;
 
         public static event Action<int> OnEnemyDied;
+
+        [Inject]
+        private void Construct(IObjectResolver objectResolver, ScoreHandler scoreHandler)
+        {
+            ObjectResolver = objectResolver;
+            _scoreHandler = scoreHandler;
+        }
 
         protected virtual void Awake()
         {
@@ -25,7 +35,7 @@ namespace Enemy
             OnEnemyDied?.Invoke(amountOfChildren);
         }
 
-        protected void AddPoints() => ScoreHandler.Instance.AddScore(points);
+        protected void AddPoints() => _scoreHandler.AddScore(points);
 
         private void OnDestroy() => _health.OnDieEvent -= Die;
     }
