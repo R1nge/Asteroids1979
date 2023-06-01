@@ -175,7 +175,7 @@ MonoBehaviour:
   - {fileID: 84615081}
   - {fileID: 443588327996703729}
   bulletFactory: {fileID: 1353242600}
-  uiHandler: {fileID: 46694468}
+  uiController: {fileID: 46694468}
 --- !u!1 &46694466
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 46694467}
   - component: {fileID: 46694468}
   m_Layer: 0
-  m_Name: UIHandler
+  m_Name: UIController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,12 +220,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f88fcce3f35af41abcad98f5f5dd15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: {fileID: 561228736}
-  highScore: {fileID: 889447284}
-  lives: {fileID: 2109357787}
-  mainMenu: {fileID: 1648341137}
-  inGame: {fileID: 341750476}
-  gameOver: {fileID: 1462080639}
+  uiModel:
+    score: {fileID: 561228736}
+    highScore: {fileID: 889447284}
+    lives: {fileID: 2109357787}
+    mainMenu: {fileID: 1648341137}
+    inGame: {fileID: 341750476}
+    gameOver: {fileID: 1462080639}
 --- !u!1 &63783455
 GameObject:
   m_ObjectHideFlags: 0

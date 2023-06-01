@@ -10,13 +10,13 @@ namespace Player
         private Health _health;
         private Rigidbody2D _rigidbody2D;
         private GameManager _gameManager;
-        private UIHandler _uiHandler;
+        private UIController uiController;
 
         [Inject]
-        private void Construct(GameManager gameManager, UIHandler uiHandler)
+        private void Construct(GameManager gameManager, UIController uiController)
         {
             _gameManager = gameManager;
-            _uiHandler = uiHandler;
+            this.uiController = uiController;
         }
 
         private void Awake()
@@ -38,7 +38,7 @@ namespace Player
                 Respawn();
             }
 
-            _uiHandler.UpdateLives(lives);
+            uiController.UpdateLives(lives);
         }
 
         private void Respawn()

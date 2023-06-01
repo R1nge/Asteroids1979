@@ -7,13 +7,13 @@ using Weapons;
 public class GameScope : LifetimeScope
 {
     [SerializeField] private BulletFactory bulletFactory;
-    [SerializeField] private UIHandler uiHandler;
+    [SerializeField] private UIController uiController;
 
     protected override void Configure(IContainerBuilder builder)
     {
         builder.Register<GameManager>(Lifetime.Singleton);
         builder.RegisterEntryPoint<ScoreHandler>().AsSelf();
         builder.RegisterComponent(bulletFactory);
-        builder.RegisterComponent(uiHandler);
+        builder.RegisterComponent(uiController);
     }
 }
